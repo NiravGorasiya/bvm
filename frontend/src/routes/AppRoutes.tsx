@@ -6,6 +6,7 @@ import { Sidebar } from "../components/Sidebar/Sidebar"
 import { Box } from "@mui/material";
 import "../styles.css"
 import { PublicRoutes } from "./PublicRoutes";
+import { Navigate } from "react-router-dom";
 
 const AppRoutes: FC = () => {
     const token = localStorage.getItem("token")
@@ -22,7 +23,10 @@ const AppRoutes: FC = () => {
                         </Box>
                     </>
                 ) : (
-                    <PublicRoutes />
+                    <>
+                        <Navigate to="/login" />
+                        <PublicRoutes />
+                    </>
                 )
             }
         </div>

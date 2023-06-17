@@ -64,11 +64,11 @@ class UserController {
     try {
       const file = req.file;
 
-      if (!file) {
-        return CommonHelper.sendResponse(res, false, HTTP_CODE.BAD_REQUEST, {
-          message: HTTP_MESSAGE.NOT_EXIST(modelName),
-        });
-      }
+      // if (!file) {
+      //   return CommonHelper.sendResponse(res, false, HTTP_CODE.BAD_REQUEST, {
+      //     message: HTTP_MESSAGE.NOT_EXIST(modelName),
+      //   });
+      // }
       const { email, password, name, phone, description } = req.body;
       const userExists = await Users.findOne({
         email: { $regex: "^" + email + "$", $options: "i" },
